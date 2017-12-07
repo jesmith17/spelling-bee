@@ -1,0 +1,20 @@
+
+
+<table class="bordered">
+  <thead>
+    <th>Word</th>
+    <th>Definition</th>
+  </thead>
+  <tbody>
+  <%= @spelling_list.spelling_words.each do |word| %>
+    <tr>
+      <td><%= word.word %></td>
+      <td><%= word.definition %></td>
+    </tr>
+      <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_spelling_list_path(@spelling_list) %> |
+<%= link_to 'Back', spelling_lists_path %>

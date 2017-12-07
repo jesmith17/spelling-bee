@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @spelling_test.name %>
+</p>
+
+<p>
+  <strong>Practice:</strong>
+  <%= @spelling_test.practice %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @spelling_test.teacher %>
+</p>
+
+<p>
+  <strong>Week:</strong>
+  <%= @spelling_test.week %>
+</p>
+
+<%= link_to 'Edit', edit_spelling_test_path(@spelling_test) %> |
+<%= link_to 'Back', spelling_tests_path %>

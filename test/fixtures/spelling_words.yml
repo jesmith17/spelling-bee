@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  word: MyString
+  definition: MyString
+  spelling_list: one
+
+two:
+  word: MyString
+  definition: MyString
+  spelling_list: two

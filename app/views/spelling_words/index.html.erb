@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Spelling Words</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>Definition</th>
+      <th>Spelling list</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spelling_words.each do |spelling_word| %>
+      <tr>
+        <td><%= spelling_word.word %></td>
+        <td><%= spelling_word.definition %></td>
+        <td><%= spelling_word.spelling_list %></td>
+        <td><%= link_to 'Show', spelling_word %></td>
+        <td><%= link_to 'Edit', edit_spelling_word_path(spelling_word) %></td>
+        <td><%= link_to 'Destroy', spelling_word, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spelling Word', new_spelling_word_path %>

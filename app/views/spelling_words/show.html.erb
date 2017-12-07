@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Word:</strong>
+  <%= @spelling_word.word %>
+</p>
+
+<p>
+  <strong>Definition:</strong>
+  <%= @spelling_word.definition %>
+</p>
+
+<p>
+  <strong>Spelling list:</strong>
+  <%= @spelling_word.spelling_list %>
+</p>
+
+<%= link_to 'Edit', edit_spelling_word_path(@spelling_word) %> |
+<%= link_to 'Back', spelling_words_path %>

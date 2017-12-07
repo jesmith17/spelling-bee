@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Spelling Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Grade</th>
+      <th>Week</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spelling_lists.each do |spelling_list| %>
+      <tr>
+        <td><%= spelling_list.grade.display_name %></td>
+        <td><%= spelling_list.week_starting %> - <%= spelling_list.week_ending %></td>
+        <td><%= link_to 'Show', spelling_list %></td>
+        <td><%= link_to 'Edit', edit_spelling_list_path(spelling_list) %></td>
+        <td><%= link_to 'Destroy', spelling_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spelling List', new_spelling_list_path %>

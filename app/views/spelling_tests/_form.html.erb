@@ -1,0 +1,37 @@
+<%= form_with(model: spelling_test, local: true) do |form| %>
+  <% if spelling_test.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(spelling_test.errors.count, "error") %> prohibited this spelling_test from being saved:</h2>
+
+      <ul>
+      <% spelling_test.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :spelling_test_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :practice %>
+    <%= form.check_box :practice, id: :spelling_test_practice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :teacher_id %>
+    <%= form.text_field :teacher_id, id: :spelling_test_teacher_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :week_id %>
+    <%= form.text_field :week_id, id: :spelling_test_week_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

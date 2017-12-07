@@ -1,0 +1,18 @@
+@import "materialize/components/color";
+$primary-color: color("red", "darken-2") !default;
+$secondary-color: color("yellow", "base") !default;
+@import 'materialize';
+
+
+body {
+  margin: 0px !important;
+}
+ul#nav-mobile {
+  padding-top: 20px;
+  padding-right: 20px;
+}
+a.brand-logo, a.brand-logo:hover, a.brand-logo:focus, a.brand-logo:visited {
+  padding-left: 20px;
+  color: initial;
+  background-color: inherit;
+}

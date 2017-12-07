@@ -1,0 +1,32 @@
+<%= form_with(model: spelling_word, local: true) do |form| %>
+  <% if spelling_word.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(spelling_word.errors.count, "error") %> prohibited this spelling_word from being saved:</h2>
+
+      <ul>
+      <% spelling_word.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :word %>
+    <%= form.text_field :word, id: :spelling_word_word %>
+  </div>
+
+  <div class="field">
+    <%= form.label :definition %>
+    <%= form.text_field :definition, id: :spelling_word_definition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :spelling_list_id %>
+    <%= form.text_field :spelling_list_id, id: :spelling_word_spelling_list_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

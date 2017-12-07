@@ -1,0 +1,2 @@
+module SpellingWordsHelper
+end
