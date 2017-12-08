@@ -1,20 +1,23 @@
 
-
-<table class="bordered">
-  <thead>
-    <th>Word</th>
-    <th>Definition</th>
-  </thead>
-  <tbody>
-  <%= @spelling_list.spelling_words.each do |word| %>
-    <tr>
-      <td><%= word.word %></td>
-      <td><%= word.definition %></td>
-    </tr>
-      <% end %>
-  </tbody>
-</table>
-
-
-<%= link_to 'Edit', edit_spelling_list_path(@spelling_list) %> |
-<%= link_to 'Back', spelling_lists_path %>
+<div class="card">
+  <div class="card-title">
+    <span class="right-align"><%= @spelling_list.week.week_starting %></span>
+    <span>Spelling List for <%= @spelling_list.grade.display_name %> Grade</span>
+  </div>
+  <div class="card-content">
+    <table class="bordered">
+      <thead>
+        <th>Word</th>
+        <th>Definition</th>
+      </thead>
+      <tbody>
+        <% @spelling_list.spelling_words.each do |word| %>
+          <tr>
+            <td class="list-words grey-text darken-4"><%= word.word %></td>
+            <td class="list-words grey-text darken-4"><%= word.definition %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

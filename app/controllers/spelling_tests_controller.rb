@@ -15,6 +15,7 @@ class SpellingTestsController < ApplicationController
   # GET /spelling_tests/new
   def new
     @spelling_test = SpellingTest.new
+    @weeks = Week.where('week_number >= ?', Time.now.strftime('%W'))
   end
 
   # GET /spelling_tests/1/edit
@@ -24,17 +25,18 @@ class SpellingTestsController < ApplicationController
   # POST /spelling_tests
   # POST /spelling_tests.json
   def create
-    @spelling_test = SpellingTest.new(spelling_test_params)
-
-    respond_to do |format|
-      if @spelling_test.save
-        format.html { redirect_to @spelling_test, notice: 'Spelling test was successfully created.' }
-        format.json { render :show, status: :created, location: @spelling_test }
-      else
-        format.html { render :new }
-        format.json { render json: @spelling_test.errors, status: :unprocessable_entity }
-      end
+    teacher = Teacher.find(spelling_test_params[:teacher_id])
+    week = Week.find(spelling_test_params[:week_id])
+    if spelling_test_params[:week_id] == "52"
+      return redirect_to new_spelling_test_url, notice: 'Ho, Ho, Ho, No Spelling Test for Christmas Break'
     end
+
+    @spelling_list = SpellingList.find_by(week: week, grade: teacher.grade )
+    if @spelling_list.nil?
+      return redirect_to new_spelling_test_url, notice: 'No Spelling List Exists for that Date & Grade'
+    end
+    @spelling_test = SpellingTest.create(week: week, teacher: teacher, name: spelling_test_params[:name], practice: spelling_test_params[:practice])
+    render 'test'
   end
 
   # PATCH/PUT /spelling_tests/1

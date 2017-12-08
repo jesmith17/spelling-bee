@@ -1,4 +1,12 @@
-<h1>New Spelling Test</h1>
+
+<h4>New Spelling Test</h4>
+
+<% unless notice.nil? %>
+    <div class="card">
+      <div class="card-title error" id="notice"><%= notice %></div>
+    </div>
+<% end %>
+
 
 <%= render 'form', spelling_test: @spelling_test %>
 

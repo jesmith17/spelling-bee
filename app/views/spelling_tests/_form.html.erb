@@ -1,37 +1,35 @@
 <%= form_with(model: spelling_test, local: true) do |form| %>
-  <% if spelling_test.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(spelling_test.errors.count, "error") %> prohibited this spelling_test from being saved:</h2>
-
-      <ul>
-      <% spelling_test.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="row">
+    <div class="col s6 m6 input-field">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :spelling_test_name %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :spelling_test_name %>
+    <div class="col s6 m3">
+      <%= form.label :practice %>
+      <div class="switch">
+        <label>
+          Off
+          <%= form.check_box :practice, id: :spelling_test_practice %>
+          <span class="lever"></span>
+          On
+        </label>
+      </div>
+    </div>
   </div>
+  <div class="row">
+    <div class="col s12 m6 input-field">
+      <%= form.select :teacher_id, options_from_collection_for_select(Teacher.all, "id", "name"), id: :spelling_test_teacher_id %>
+      <%= form.label :teacher_id %>
+    </div>
 
-  <div class="field">
-    <%= form.label :practice %>
-    <%= form.check_box :practice, id: :spelling_test_practice %>
-  </div>
-
-  <div class="field">
-    <%= form.label :teacher_id %>
-    <%= form.text_field :teacher_id, id: :spelling_test_teacher_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :week_id %>
-    <%= form.text_field :week_id, id: :spelling_test_week_id %>
+    <div class="col s12 m6 input-field">
+      <%= form.select :week_id, options_from_collection_for_select(@weeks, 'id', 'week_starting'), id: :spelling_test_week_id %>
+      <%= form.label :week_id %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Take Test', :class =>['btn grey darken-1'] %>
   </div>
 <% end %>

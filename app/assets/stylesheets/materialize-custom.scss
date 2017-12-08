@@ -1,6 +1,6 @@
 @import "materialize/components/color";
-$primary-color: color("red", "darken-2") !default;
-$secondary-color: color("yellow", "base") !default;
+$primary-color: color("indigo", "base") !default;
+$secondary-color: color("blue", "darken-1") !default;
 @import 'materialize';
 
 
@@ -15,4 +15,22 @@ a.brand-logo, a.brand-logo:hover, a.brand-logo:focus, a.brand-logo:visited {
   padding-left: 20px;
   color: initial;
   background-color: inherit;
+}
+.card-title {
+  padding-top: 10px;
+  padding-left: 20px;
+  height: 40px;
+}
+.body-container {
+  margin-top: 10px;
+}
+.error {
+  background-color: pink;
+  color: red;
+}
+.list-words {
+  font-size: x-large;
+}
+#notice {
+  color: red;
 }

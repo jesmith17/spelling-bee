@@ -1,0 +1,31 @@
+
+
+<div class="card">
+  <div class="card-title">
+    Spelling Test for: <%= @spelling_test.teacher.name %> for <%=@spelling_test.week.week_starting %>
+  </div>
+  <div class="card-content">
+    <table class="bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Your Answer</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @spelling_list.spelling_words.each_with_index do |word, index| %>
+          <tr data-word-id="<%= word.id %>" class="test-row">
+            <td><%= index  +1 %></td>
+            <td>
+              <input type="text" class="word-input"/>
+              <%= hidden_field_tag 'word-hidden', word.word, class: ['word-compare'] %>
+            </td>
+            <td class="result-msg">
+
+            </td>
+          </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

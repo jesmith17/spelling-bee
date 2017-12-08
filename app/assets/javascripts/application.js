@@ -11,6 +11,10 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
+//= require jquery_ujs
+//= require underscore
 //= require materialize
+//= require materialize/extras/nouislider
 //= require_tree .
 

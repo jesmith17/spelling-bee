@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207064515) do
+ActiveRecord::Schema.define(version: 20171208150742) do
 
   create_table "grades", force: :cascade do |t|
     t.string "display_name"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20171207064515) do
     t.integer "week_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "spelling_list_id"
+    t.index ["spelling_list_id"], name: "index_spelling_tests_on_spelling_list_id"
     t.index ["teacher_id"], name: "index_spelling_tests_on_teacher_id"
     t.index ["week_id"], name: "index_spelling_tests_on_week_id"
   end

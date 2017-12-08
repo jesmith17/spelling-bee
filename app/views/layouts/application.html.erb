@@ -12,17 +12,18 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">
+        <span class="white-text" style="font-size: xx-large;padding-left:10px;">Prairie Ridge Elementary</span>
+        <a href="/" class="brand-logo">
           <%= image_tag('pre_paw.png', height: '60px') %>
         </a>
         <ul id="nav-mobile" class="right hide-on-med-and-down valign-wrapper">
-          <li class="active"><%= link_to 'Teachers', teachers_url %></li>
-          <li><%= link_to 'Spelling Lists', spelling_lists_url %></li>
-          <li><%= link_to 'Take Test', new_spelling_test_url %></li>
+          <li class="active"><%= link_to 'Teachers', teachers_url, class: ['white-text'] %></li>
+          <li><%= link_to 'Spelling Lists', spelling_lists_url, class: ['white-text'] %></li>
+          <li><%= link_to 'Take Test', new_spelling_test_url, class: ['white-text'] %></li>
         </ul>
       </div>
     </nav>
-    <div class="container">
+    <div class="container body-container">
       <%= yield %>
     </div>
   </body>
